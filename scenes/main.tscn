@@ -5,10 +5,10 @@
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 74.0
-offset_right = 45.0
-offset_bottom = 114.0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 39.0
+offset_bottom = 42.0
 mouse_filter = 2
 script = ExtResource("1_ct414")
 
@@ -86,10 +86,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -114.0
-offset_right = 1145.0
-offset_bottom = 557.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 1150.0
+offset_bottom = 631.0
 grow_horizontal = 2
 grow_vertical = 0
 shortcut_context = NodePath("GridLines")
