@@ -12,38 +12,21 @@ offset_bottom = 114.0
 mouse_filter = 2
 script = ExtResource("1_ct414")
 
-[node name="gameArea" type="ColorRect" parent="." node_paths=PackedStringArray("shortcut_context")]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = -16.0
-offset_right = 1134.0
-offset_bottom = 1233.0
-grow_horizontal = 2
-grow_vertical = 0
-shortcut_context = NodePath("GridLines")
-color = Color(0.0214346, 0.0214346, 0.0214346, 1)
-
-[node name="GridLines" type="Node2D" parent="gameArea"]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1075.0
-offset_top = 326.0
-offset_right = 1162.0
-offset_bottom = 637.0
+z_index = 1000
+offset_left = 1055.0
+offset_top = 334.0
+offset_right = 1142.0
+offset_bottom = 645.0
 
 [node name="Red" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
 text = "RED"
+metadata/identifier = 0
 
 [node name="Green" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -94,3 +77,32 @@ toggle_mode = true
 button_pressed = true
 text = "LIME
 "
+
+[node name="gameArea" type="ColorRect" parent="." node_paths=PackedStringArray("shortcut_context")]
+z_index = -1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -114.0
+offset_right = 1145.0
+offset_bottom = 557.0
+grow_horizontal = 2
+grow_vertical = 0
+shortcut_context = NodePath("GridLines")
+color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+
+[node name="GridLines" type="Node2D" parent="gameArea"]
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Red" to="." method="_on_color_button_pressed" binds= [0]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Green" to="." method="_on_color_button_pressed" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Blue" to="." method="_on_color_button_pressed" binds= [2]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Yellow" to="." method="_on_color_button_pressed" binds= [3]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Orange" to="." method="_on_color_button_pressed" binds= [4]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Purple" to="." method="_on_color_button_pressed" binds= [5]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Cyan" to="." method="_on_color_button_pressed" binds= [6]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Magenta" to="." method="_on_color_button_pressed" binds= [7]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Lime" to="." method="_on_color_button_pressed" binds= [8]]
