@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b41yfopptrkch"]
+[gd_scene load_steps=3 format=3 uid="uid://b41yfopptrkch"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ct414"]
+
+[sub_resource type="Theme" id="Theme_7axfn"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -23,6 +25,7 @@ offset_bottom = 645.0
 
 [node name="Red" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_7axfn")
 toggle_mode = true
 button_pressed = true
 text = "RED"

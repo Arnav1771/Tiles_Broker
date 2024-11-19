@@ -1,11 +1,11 @@
 extends Control
 
-const GRID_WIDTH: int = 10
+const GRID_WIDTH: int = 30
 const GRID_HEIGHT: int = 20
 const BLOCK_SIZE: int = 30
 
 var grid: Array[Array] = []
-var color_index: int = 1;
+var color_index: int = 0;
 
 # Predefined colors to cycle through when pressing "C"
 var colors: Array = [
@@ -72,15 +72,13 @@ func _input(event: InputEvent) -> void:
 	# Handle mouse input
 	if event is InputEventMouseButton and event.pressed:
 		var mouse_pos = get_global_mouse_position()
-		print("grid_position: ", grid_position)
-		print("mouse_pos: ", mouse_pos)
-		#var relative_mouse_pos = mouse_pos - grid_position
-		#print("Mouse x:", relative_mouse_pos.x)
-		#print("Mouse y:", relative_mouse_pos.y)
-		var grid_x = int(mouse_pos.x / BLOCK_SIZE)
-		var grid_y = int(mouse_pos.y / BLOCK_SIZE)
-		print("grid_x: ", grid_x)
-		print("grid_y: ", grid_y)
+		var relative_mouse_pos = mouse_pos - grid_position
+		print("Mouse x:", relative_mouse_pos.x)
+		print("Mouse y:", relative_mouse_pos.y)
+		var grid_x = int(relative_mouse_pos.x / BLOCK_SIZE)
+		var grid_y = int(relative_mouse_pos.y / BLOCK_SIZE)
+		#print("grid_x: ", grid_x)
+		#print("grid_y: ", grid_y)
 		if grid_x >= 0 and grid_x < GRID_WIDTH and grid_y >= 0 and grid_y < GRID_HEIGHT:
 			grid[grid_x][grid_y] = color_index  # Place block with current color
 			#print(grid)
@@ -89,12 +87,12 @@ func _input(event: InputEvent) -> void:
 	
 	# Handle key input for "A" key press
 	if event is InputEventKey:
-		if event.pressed and event.physical_keycode == KEY_A:  # Check if 'A' key is pressed 
+		if event.pressed and event.scancode == KEY_A:  # Check if 'A' key is pressed 
 			change_block_color(0)
 
 	# Check for "C" key press to cycle through colors
 	if event is InputEventKey and event.pressed:
-		if event.physical_keycode == KEY_F:
+		if event.scancode == KEY_F:
 			change_block_color(1)  # Change block color when "C" is pressed
 
 # Function to cycle through colors when "C" key is pressed
