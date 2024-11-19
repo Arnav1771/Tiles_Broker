@@ -77,13 +77,12 @@ func _input(event: InputEvent) -> void:
 		print("Mouse y:", relative_mouse_pos.y)
 		var grid_x = int(relative_mouse_pos.x / BLOCK_SIZE)
 		var grid_y = int(relative_mouse_pos.y / BLOCK_SIZE)
-		#print("grid_x: ", grid_x)
-		#print("grid_y: ", grid_y)
+		# Check if the grid cell is empty (null) before placing a block
 		if grid_x >= 0 and grid_x < GRID_WIDTH and grid_y >= 0 and grid_y < GRID_HEIGHT:
-			grid[grid_x][grid_y] = color_index  # Place block with current color
-			#print(grid)
-		queue_redraw()
-		check_for_alignments()
+			if grid[grid_x][grid_y] == null:
+				grid[grid_x][grid_y] = color_index  # Place block only if cell is empty
+				queue_redraw()
+				check_for_alignments()
 	
 	# Handle key input for "A" key press
 	if event is InputEventKey:
